@@ -1,10 +1,15 @@
 import {
     LOGIN_FAIL,
     LOGIN_REQUEST,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    RESET,
+    LOGOUT_SUCCESS
 } from '../constants/userConstant';
 
 import { API } from '../../Backend';
+
+import axios from 'axios';
+import { persistor } from '../store';
 
 export const login = (user) => async (dispatch) => {
     try {
@@ -24,8 +29,17 @@ export const login = (user) => async (dispatch) => {
 
         dispatch({ type: LOGIN_SUCCESS, payload: data.user })
 
+        return data;
     } catch (err) {
         dispatch({ type: LOGIN_FAIL, payload: err.response.data.message });
         return err.response.data
     }
+}
+
+export const logout = () => async (dispatch) => {
+    localStorage.clear();
+    await persistor.purge();
+    dispatch({ type: RESET });
+
+    dispatch({ type: LOGOUT_SUCCESS })
 }

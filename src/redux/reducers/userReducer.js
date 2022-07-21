@@ -1,7 +1,8 @@
 import {
     LOGIN_FAIL,
     LOGIN_REQUEST,
-    LOGIN_SUCCESS
+    LOGIN_SUCCESS,
+    LOGOUT_SUCCESS
 } from '../constants/userConstant';
 
 
@@ -14,7 +15,7 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOGIN_FAIL:
+        case LOGIN_REQUEST:
             return {
                 ...state,
                 loading: true,
@@ -37,6 +38,14 @@ export const userReducer = (state = initialState, action) => {
                 error: action.payload,
                 loading: false,
                 user: null
+            }
+
+        case LOGOUT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                user: null,
+                isAuthenticated: false
             }
         default:
             return state

@@ -1,3 +1,4 @@
+import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory'
 import {
     SHOW_ADD_FAIL,
     SHOW_ADD_REQUEST,
@@ -42,6 +43,47 @@ export const showReducer = (state = initialState, action) => {
                 loading: false,
                 error: action.payload,
             }
+
+        case SHOW_ADD_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                shows: [...state.shows, action.payload.show],
+                message: action.payload.message,
+                error: null
+            }
+
+        case SHOW_GET_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                shows: action.payload.shows,
+                message: action.payload.message,
+                error: null
+            }
+
+        case SHOW_DELETE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                shows: state.shows.filter((show) => show._id !== action.payload._id)
+            }
+
+        case SHOW_UPDATE_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                message: action.payload.message,
+                shows: state.shows.map((show) => {
+                    if (show._id === action.payload.show._id) {
+                        return action.payload.show
+                    }
+                    return show
+                })
+            }
+
 
         default:
             return state
