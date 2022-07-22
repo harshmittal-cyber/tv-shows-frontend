@@ -17,7 +17,7 @@
 
 5) `For running LOCAL API change the API in Backend.js file`
 
-# User can add a new title
+# User can Perform Actions on TV Shows --> Done
 1) `Title Done`
 2) `Streaming APP DONE`
 3) `Rating Done`
