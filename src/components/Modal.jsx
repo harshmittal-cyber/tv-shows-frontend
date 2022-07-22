@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Modal = ({children, targetName}) => {
+const Modal = ({ children, targetName }) => {
   return (
     <div className="modal fade" data-bs-backdrop={"static"} id={targetName} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered modal-md modal-fullscreen-sm-down">
@@ -16,6 +16,6 @@ const Modal = ({children, targetName}) => {
 
 Modal.defaultProps = {
   targetName: "exampleModal"
-} 
+}
 
 export default Modal

@@ -1,4 +1,3 @@
-import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory'
 import {
     SHOW_ADD_FAIL,
     SHOW_ADD_REQUEST,

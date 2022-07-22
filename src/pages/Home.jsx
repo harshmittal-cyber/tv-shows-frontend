@@ -126,7 +126,7 @@ const Home = () => {
                     return (
                         <div key={index} className='d-flex flex-row flex-wrap mx-2'>
                             <div className="card d-flex" style={{ width: '18rem' }}>
-                                <img className="card-img" src={`https://source.unsplash.com/250x250/?streaming, app, movies`} alt="Card image cap" />
+                                <img className="card-img" src={`https://source.unsplash.com/250x250/?streaming, app, movies`} alt="Cardcap" />
                                 <div className="card-body">
                                     <div className='d-flex justify-content-between'>
                                         <div className='d-flex'>
